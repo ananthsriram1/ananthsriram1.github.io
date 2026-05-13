@@ -1,241 +1,386 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ananth Sriram | AI Systems Engineer & Researcher</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description" content="Ananth Sriram — CS and ML student at UMD. ML systems, Explainable AI, and applied research.">
+    <title>Ananth Sriram</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'packers-green': '#203731',
-                        'packers-gold': '#FFB612',
-                        'light-cream': '#F9FBF8',
-                    }
-                }
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --text: #1a1a1a;
+            --muted: #4a4a4a;
+            --rule: #d4d0cc;
+            --bg: #faf9f7;
+            --link: #0b57d0;
+            --link-visited: #5c2d91;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Source Sans 3", system-ui, -apple-system, sans-serif;
+            font-size: 1rem;
+            line-height: 1.55;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        .page {
+            max-width: 40rem;
+            margin: 0 auto;
+            padding: 3rem 1.75rem 4rem;
+        }
+
+        @media (min-width: 640px) {
+            .page {
+                padding: 3.5rem 2.5rem 5rem;
             }
         }
-    </script>
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F9FBF8; /* light-cream */
-            color: #374151; /* gray-700 */
+
+        h1, h2, h3 {
+            font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+            font-weight: 700;
+            line-height: 1.25;
         }
-        .section-title {
-            color: #111827; /* gray-900 */
+
+        h1 {
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            margin: 0 0 0.75rem;
+            letter-spacing: -0.02em;
         }
-        .card {
-            background-color: #ffffff;
-            border: 1px solid #e5e7eb; /* gray-200 */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        h2 {
+            font-size: 1.125rem;
+            margin: 0 0 0.65rem;
+            font-weight: 600;
         }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+        h3 {
+            font-size: 1rem;
+            margin: 1.25rem 0 0.5rem;
+            font-weight: 600;
         }
-        .tag {
-            background-color: #f3f4f6; /* gray-100 */
-            color: #4b5563; /* gray-600 */
+
+        p {
+            margin: 0 0 0.75rem;
+            color: var(--muted);
         }
-        .icon-link:hover svg {
-            transform: scale(1.1);
+
+        a {
+            color: var(--link);
+            text-decoration: none;
         }
-        .gallery-img {
-            transition: transform 0.3s ease, filter 0.3s ease;
+
+        a:hover {
+            text-decoration: underline;
         }
-        .gallery-img:hover {
-            transform: scale(1.05);
-            filter: brightness(1.1);
+
+        a:visited {
+            color: var(--link-visited);
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid var(--rule);
+            margin: 2rem 0;
+        }
+
+        .intro {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 1rem 1.25rem;
+            align-items: start;
+        }
+
+        .intro-text {
+            grid-column: 1;
+            grid-row: 1;
+            min-width: 0;
+        }
+
+        .intro-text p {
+            margin: 0;
+        }
+
+        .profile {
+            grid-column: 2;
+            grid-row: 1;
+            justify-self: end;
+        }
+
+        .profile img {
+            display: block;
+            width: 5.5rem;
+            height: 5.5rem;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--rule);
+        }
+
+        .personal-blurb {
+            margin: 0 0 1.1rem;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .rym-link {
+            font-family: "Source Serif 4", Georgia, serif;
+            font-weight: 600;
+            font-style: italic;
+            color: var(--text);
+            border-bottom: 1px solid var(--rule);
+            text-decoration: none;
+            transition: border-color 0.2s ease, color 0.2s ease;
+        }
+
+        .rym-link:hover {
+            color: var(--link);
+            border-bottom-color: var(--link);
+            text-decoration: none;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.75rem;
+        }
+
+        @media (min-width: 640px) {
+            .photo-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 0.85rem;
+            }
+        }
+
+        .photo-tile {
+            border-radius: 0.5rem;
+            overflow: hidden;
+            border: 1px solid var(--rule);
+            background: #fff;
+            opacity: 0;
+            transform: translateY(0.85rem) scale(0.985);
+            transition:
+                opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .photo-tile.is-visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .photo-grid .photo-tile:nth-child(1) { transition-delay: 0ms; }
+        .photo-grid .photo-tile:nth-child(2) { transition-delay: 55ms; }
+        .photo-grid .photo-tile:nth-child(3) { transition-delay: 110ms; }
+        .photo-grid .photo-tile:nth-child(4) { transition-delay: 165ms; }
+        .photo-grid .photo-tile:nth-child(5) { transition-delay: 220ms; }
+        .photo-grid .photo-tile:nth-child(6) { transition-delay: 275ms; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .photo-tile {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+
+            .photo-grid .photo-tile:nth-child(n) {
+                transition-delay: 0ms;
+            }
+        }
+
+        .photo-tile img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+        }
+
+        .links {
+            font-size: 0.95rem;
+        }
+
+        .links span.sep {
+            color: var(--rule);
+            padding: 0 0.35rem;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 1.15rem;
+            color: var(--muted);
+        }
+
+        li {
+            margin-bottom: 0.45rem;
+        }
+
+        li:last-child {
+            margin-bottom: 0;
+        }
+
+        .news-date {
+            font-variant-numeric: tabular-nums;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .experience-block {
+            margin-bottom: 0.25rem;
+        }
+
+        .experience-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .item-title {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        footer {
+            margin-top: 2.5rem;
+            padding-top: 1rem;
+            font-size: 0.85rem;
+            color: #737373;
         }
     </style>
 </head>
-<body class="antialiased">
+<body>
+    <div class="page">
+        <header class="intro">
+            <div class="intro-text">
+                <h1>Ananth Sriram</h1>
+                <p>I am a CS + ML student at UMD (Class of 2026). My work focuses on multi-armed bandits and remote sensing, with current research in Columbia's CRIS lab and UMD's Digital and Precision Agriculture Lab previous experience at Capital One and ZoomInfo.</p>
+            </div>
+            <div class="profile">
+                <img src="images/headshot.jpeg" alt="Ananth Sriram" width="88" height="88"
+                     onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22128%22%20height%3D%22128%22%20viewBox%3D%220%200%20128%20128%22%3E%3Ccircle%20cx%3D%2264%22%20cy%3D%2264%22%20r%3D%2264%22%20fill%3D%22%23e8e4df%22%2F%3E%3Ctext%20x%3D%2264%22%20y%3D%2278%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2234%22%20fill%3D%22%232c2c2c%22%3EAS%3C%2Ftext%3E%3C%2Fsvg%3E';">
+            </div>
+        </header>
 
-    <!-- Header & Navigation -->
-    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold text-packers-green">Ananth Sriram</a>
-            <div class="hidden md:flex items-center space-x-6">
-                <a href="#about" class="text-gray-600 hover:text-packers-green transition-colors">About</a>
-                <a href="#projects" class="text-gray-600 hover:text-packers-green transition-colors">Projects</a>
-                <a href="#gallery" class="text-gray-600 hover:text-packers-green transition-colors">Gallery</a>
-                <a href="#interests" class="text-gray-600 hover:text-packers-green transition-colors">Interests</a>
-            </div>
-            <div class="hidden md:flex items-center space-x-4">
-                <a href="./Ananth_Sriram_resume.pdf" target="_blank" class="text-packers-green hover:text-gray-900 transition-colors text-sm font-semibold">
-                    Resume
-                </a>
-                <a href="mailto:asriram2@terpmail.umd.edu" class="bg-packers-green text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-opacity-90 transition-colors">
-                    Contact Me
-                </a>
-            </div>
+        <hr>
+
+        <nav class="links" aria-label="Primary links">
+            <a href="mailto:asriram2@terpmail.umd.edu">Email</a><span class="sep">/</span>
+            <a href="https://github.com/ananthsriram1">GitHub</a><span class="sep">/</span>
+            <a href="https://www.linkedin.com/in/ananthsriram1/">LinkedIn</a><span class="sep">/</span>
+            <a href="./Ananth_Sriram_resume.pdf">Resume</a><span class="sep">/</span>
+            <a href="https://scholar.google.com/citations?user=wRJ2AAEAAAAJ&hl">Google Scholar</a>
         </nav>
-    </header>
 
-    <main class="container mx-auto px-6 py-12 md:py-20">
+        <hr>
 
-        <!-- Hero Section -->
-        <section id="hero" class="text-center mb-20 md:mb-32">
-            <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-4 leading-tight">AI Systems Engineer & Researcher</h1>
-            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                Building robust ML systems by day, pursuing my passions at night. Passionate about finding patterns in complex systems, whether in code or on the field.
+        <section aria-labelledby="news-heading">
+            <h2 id="news-heading">News</h2>
+            <ul>
+                <li><span class="news-date">Oct &rsquo;25:</span> Accepted Full-Time offer from Capital One.</li>
+                <li><span class="news-date">Sep &rsquo;25:</span> Started as Research Assistant at Columbia University CRIS.</li>
+                <li><span class="news-date">Jun &rsquo;25:</span> Joined Capital One as a Software Engineer Intern (Finance Tech).</li>
+                <li><span class="news-date">Jul &rsquo;24:</span> Published &ldquo;An Overview of Drones in Agriculture&rdquo; in UMD Extension.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section aria-labelledby="experience-heading">
+            <h2 id="experience-heading">Experience</h2>
+
+            <div class="experience-block">
+                <h3>Research</h3>
+                <ul>
+                    <li><span class="item-title">Columbia University (CRIS)</span> &mdash; Research Assistant. Explainable AI (XAI) for complex scientific and physicochemical systems.</li>
+                    <li><span class="item-title">University of Maryland</span> &mdash; Research on precision agriculture and remote sensing; co-authored extension publication on drones in agriculture.</li>
+                    <li><span class="item-title">University of Maryland — A. James Clark School of Engineering</span> &mdash; Undergraduate Research Assistant (Jan 2024 &ndash; May 2024). Integrated a predictive ML model into a real-time analytics platform to improve the reliability of a physical bioprinting system.</li>
+                    <li><span class="item-title">University of Maryland — Department of Geographical Sciences</span> &mdash; Undergraduate Research Assistant (Sep 2023 &ndash; Dec 2023). Benchmarked CNN/SVM approaches for UAV-based fire detection (XPRIZE challenge).</li>
+                    <li><span class="item-title">First Year Innovation and Research Experience (FIRE)</span> &mdash; Undergraduate Research Assistant (Aug 2022 &ndash; Nov 2023). Processed and analyzed terabyte-scale datasets in a supercomputing environment using Python and shell scripting.</li>
+                </ul>
+            </div>
+
+            <div class="experience-block">
+                <h3>Industry</h3>
+                <ul>
+                    <li><span class="item-title">Capital One</span> &mdash; Software Engineer Intern, Finance Tech (Summer 2025).</li>
+                    <li><span class="item-title">ZoomInfo</span> &mdash; Software Engineering Intern, MLOps (Summer 2024).</li>
+                </ul>
+            </div>
+        </section>
+
+        <hr>
+
+        <section aria-labelledby="pubs-heading">
+            <h2 id="pubs-heading">Publications &amp; Projects</h2>
+            <ul>
+                <li>
+                    <span class="item-title">An Overview of Drones in Agriculture</span> (UMD Extension, Jul 2024).
+                    <a href="https://extension.umd.edu/resource/overview-drones-agriculture-fs-2024-0705/">Paper / resource</a>
+                </li>
+                <li>
+                    <span class="item-title">AI Music Detection</span> &mdash; Full-stack app: spectrogram CNN (92% accuracy), React frontend, Flask backend.
+                    <a href="https://github.com/ananthsriram1/MusicDetection">Code</a>
+                </li>
+                <li>
+                    <span class="item-title">IronSite Safety Assistant</span> (UMD IronSite Hackathon &rsquo;26, 1st place) &mdash; End-of-shift construction safety dashboard from body-worn and fixed-camera video: PPE and posture pipelines (YOLO, SAM 3, VLM), per-worker reports. FastAPI backend; TypeScript dashboard.
+                    <a href="https://github.com/ananthsriram1/ironsite-hackathon-project-safety_assistant">Code</a>
+                </li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section aria-labelledby="photos-heading">
+            <h2 id="photos-heading">Out and about</h2>
+            <p class="personal-blurb">
+                A few places off-screen. Check out my rate your music! 
+                <a class="rym-link" href="https://rateyourmusic.com/~madnessbehindthebeauty" target="_blank" rel="noopener noreferrer">Rate Your Music</a>
             </p>
-            <div class="flex justify-center items-center space-x-6">
-                <a href="https://www.linkedin.com/in/ananthsriram1/" target="_blank" class="text-gray-500 hover:text-packers-green transition-colors icon-link">
-                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                </a>
-                <a href="https://github.com/ananthsriram1" target="_blank" class="text-gray-500 hover:text-packers-green transition-colors icon-link">
-                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                </a>
+            <div class="photo-grid">
+                <div class="photo-tile"><img src="images/SycamoreValley.JPG" alt="Sycamore Valley"></div>
+                <div class="photo-tile"><img src="images/LittleYosemite.jpg" alt="Little Yosemite"></div>
+                <div class="photo-tile"><img src="images/LewisGinter.jpg" alt="Lewis Ginter Botanical Gardens"></div>
+                <div class="photo-tile"><img src="images/BMoreShore.jpg" alt="Baltimore shoreline"></div>
+                <div class="photo-tile"><img src="images/CoyoteHills.jpg" alt="Coyote Hills Regional Park"></div>
+                <div class="photo-tile"><img src="images/Tamalpais.JPG" alt="Mount Tamalpais"></div>
             </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="mb-20 md:mb-32 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-12 section-title">About Me</h2>
-            <div class="max-w-4xl mx-auto text-gray-600 leading-relaxed space-y-6 text-lg text-center">
-                <p>
-                    I'm a Computer Science student at the University of Maryland, graduating in May 2026. I'm passionate about creating ML applications for things I'm passionate about, whether it's for personal interests or for issues that I care about!
-                </p>
-                <p>
-                    Right now, I'm channeling this passion into my research, where I'm using Generative AI to automate the discovery of insights from scientific literature and satellite data. I'm always looking for the next hard problem to solve.
-                </p>
-            </div>
-        </section>
+        <footer>
+            <p>&copy; 2026 Ananth Sriram</p>
+        </footer>
+    </div>
+    <script>
+        (function () {
+            var tiles = document.querySelectorAll(".photo-tile");
+            if (!tiles.length) return;
 
-        <!-- Projects Section -->
-        <section id="projects" class="mb-20 md:mb-32 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-12 section-title">Projects & Experience</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Project Card 1: Music Detection App -->
-                <div class="card rounded-xl p-6 shadow-sm">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">AI Music Detection App</h3>
-                    <p class="text-gray-500 mb-4">Personal Project</p>
-                    <p class="text-gray-600 mb-6">Developed a full-stack app to classify music as AI-generated or human-made by analyzing spectrograms with a CNN, achieving 92% accuracy. Built with a React frontend and Flask backend.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="tag text-xs font-medium px-2.5 py-1 rounded-full">PyTorch</span>
-                        <span class="tag text-xs font-medium px-2.5 py-1 rounded-full">React.js</span>
-                        <span class="tag text-xs font-medium px-2.5 py-1 rounded-full">Flask</span>
-                        <span class="tag text-xs font-medium px-2.5 py-1 rounded-full">Computer Vision</span>
-                    </div>
-                </div>
-                
-                <!-- Add more project cards here -->
+            if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                tiles.forEach(function (el) {
+                    el.classList.add("is-visible");
+                });
+                return;
+            }
 
-            </div>
-        </section>
+            var observer = new IntersectionObserver(
+                function (entries) {
+                    entries.forEach(function (entry) {
+                        if (!entry.isIntersecting) return;
+                        entry.target.classList.add("is-visible");
+                        observer.unobserve(entry.target);
+                    });
+                },
+                { root: null, rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+            );
 
-        <!-- Gallery Section -->
-        <section id="gallery" class="mb-20 md:mb-32 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-12 section-title">From the Trailhead</h2>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto text-center mb-12">
-                When I'm not in front of a screen, I love getting outdoors. Here are a few moments from my favorite trails and natural parks.
-            </p>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                <div class="overflow-hidden rounded-lg shadow-lg">
-                    <img src="./images/SycamoreValley.JPG" alt="Sycamore Valley" class="w-full h-full object-cover gallery-img">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-lg">
-                    <img src="./images/LittleYosemite.jpg" alt="Little Yosemite" class="w-full h-full object-cover gallery-img">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-lg">
-                    <img src="./images/LewisGinter.jpg" alt="Lewis Ginter Botanical Gardens" class="w-full h-full object-cover gallery-img">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-lg">
-                    <img src="./images/BMoreShore.jpg" alt="Baltimore Shoreline" class="w-full h-full object-cover gallery-img">
-                </div>
-                 <div class="overflow-hidden rounded-lg shadow-lg">
-                    <img src="./images/CoyoteHills.jpg" alt="Coyote Hills Regional Park" class="w-full h-full object-cover gallery-img">
-                </div>
-                 <div class="overflow-hidden rounded-lg shadow-lg">
-                    <img src="./images/Tamalpais.JPG" alt="Mount Tamalpais" class="w-full h-full object-cover gallery-img">
-                </div>
-            </div>
-        </section>
-
-        <!-- Research Section -->
-        <section id="research" class="mb-20 md:mb-32 scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-12 section-title">Research & Reading</h2>
-            <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-                <div class="space-y-4 text-left">
-                    <h3 class="text-2xl font-bold text-gray-800">Automating Scientific Discovery</h3>
-                    <p class="text-gray-600 leading-relaxed">
-                        As a Research Intern at the University of Maryland, I'm currently spearheading a project to automate insight discovery from scientific literature. My work involves architecting a data pipeline that uses Generative AI and the ArXiv API to extract, analyze, and validate agricultural indices from research papers against real-world satellite data.
-                    </p>
-                    <p class="text-gray-600 leading-relaxed">
-                        This work builds on my foundational research which led to my co-authored publication, <a href="https://extension.umd.edu/resource/overview-drones-agriculture-fs-2024-0705/" target="_blank" class="text-packers-green font-semibold hover:underline">"An Overview of Drones in Agriculture."</a>
-                    </p>
-                </div>
-                <div class="card rounded-xl p-8 text-center bg-white border-dashed">
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">My Digital Bookshelf</h3>
-                    <p class="text-gray-600 mb-6">I maintain a public repository of my notes and analysis on the ML papers I'm reading. It's my way of learning in public and solidifying my understanding of the field's foundations.</p>
-                    <a href="https://github.com/ananthsriram1/ML-Paper-Notes" target="_blank" class="inline-block bg-gray-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-900 transition-colors">
-                        View My Paper Notes
-                    </a>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Niche Interests Section -->
-        <section id="interests" class="text-center scroll-mt-20">
-            <h2 class="text-3xl font-bold text-center mb-12 section-title">My Other Playbooks</h2>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-                When I'm not building systems, you can find me diving into one of my other passions. I'm a die-hard Packers fan, a music nerd always looking for the next great album, and a tech enthusiast who loves tinkering with new hardware and software.
-            </p>
-            <div class="flex justify-center space-x-8">
-                <!-- Packers Icon -->
-                <div class="text-center">
-                    <div class="bg-white p-4 rounded-full shadow-sm border border-gray-200 inline-block">
-                        <!-- Corrected Packers "G" SVG Path -->
-                        <svg class="h-8 w-8 text-packers-green" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.36,9.04C16.96,7.64 15.06,7 13,7C9.69,7 7,9.69 7,13C7,16.31 9.69,19 13,19C15.5,19 17.6,17.44 18.36,15.27L16.27,14.56C15.82,15.93 14.54,17 13,17C10.79,17 9,15.21 9,13C9,10.79 10.79,9 13,9C14.08,9 15.06,9.44 15.78,10.14L14,12H20V6L18.36,9.04Z"/></svg>
-                    </div>
-                    <p class="mt-2 text-sm font-medium text-gray-700">Go Pack Go</p>
-                </div>
-                <!-- Music Icon with Link -->
-                <a href="https://rateyourmusic.com/~madnessbehindthebeauty" target="_blank" class="text-center block interest-link">
-                    <div class="bg-white p-4 rounded-full shadow-sm border border-gray-200 inline-block">
-                        <svg class="h-8 w-8 text-packers-green" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 14.5c-2.49 0-4.5-2.01-4.5-4.5S9.51 7.5 12 7.5s4.5 2.01 4.5 4.5-2.01 4.5-4.5 4.5zm0-7C10.62 9.5 9.5 10.62 9.5 12s1.12 2.5 2.5 2.5 2.5-1.12 2.5-2.5S13.38 9.5 12 9.5z"/></svg>
-                    </div>
-                     <p class="mt-2 text-sm font-medium text-gray-700">Music Nerd</p>
-                </a>
-                <!-- Tech Icon -->
-                <div class="text-center">
-                    <div class="bg-white p-4 rounded-full shadow-sm border border-gray-200 inline-block">
-                        <svg class="h-8 w-8 text-packers-green" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM4 6h16v2H4V6zm0 12v-6h16v6H4z"/></svg>
-                    </div>
-                     <p class="mt-2 text-sm font-medium text-gray-700">Tech Enthusiast</p>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-packers-green text-gray-300">
-        <div class="container mx-auto px-6 py-8 text-center">
-            <div class="flex justify-center items-center space-x-6 mb-4">
-                <a href="https://www.linkedin.com/in/ananthsriram1/" target="_blank" class="hover:text-white transition-colors">
-                    LinkedIn
-                </a>
-                <span>&bull;</span>
-                <a href="https://github.com/ananthsriram1" target="_blank" class="hover:text-white transition-colors">
-                    GitHub
-                </a>
-                <span>&bull;</span>
-                <a href="mailto:asriram2@terpmail.umd.edu" class="hover:text-white transition-colors">
-                    Email
-                </a>
-            </div>
-            <p>&copy; 2025 Ananth Sriram. Go Pack Go.</p>
-        </div>
-    </footer>
-
+            tiles.forEach(function (el) {
+                observer.observe(el);
+            });
+        })();
+    </script>
 </body>
 </html>
